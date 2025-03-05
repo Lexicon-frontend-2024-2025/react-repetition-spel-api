@@ -1,4 +1,5 @@
 "use client";
+import styles from "./header.module.css";
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
@@ -15,15 +16,17 @@ export default function Header() {
         }
     }
     return (
-        <header>
-            <h2>Game Encyclopaedia</h2>
-            <input
-                type='text'
-                placeholder='Search games'
-                value={searchQuery}
-                onKeyDown={handleKeyDown}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
+        <header className={styles.header}>
+            <section>
+                <h2>Game Finder</h2>
+                <input
+                    type='text'
+                    placeholder='Search games'
+                    value={searchQuery}
+                    onKeyDown={handleKeyDown}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </section>
             <p>🎮</p>
         </header>
     )
