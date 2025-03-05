@@ -6,7 +6,6 @@ export default async function Home() {
   // hämta populära spel från API
   const res = await fetch(`https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_RAWG_API_KEY}`); //lägg till din api-nyckel
   const data = await res.json();
-  console.log(data);
 
   // få enbart de 6 första spelen
   const popularGames: Game[] = data.results.slice(0, 6);

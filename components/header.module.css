@@ -9,3 +9,8 @@ header.header section {
     display: flex;
     gap: 1rem;
 }
+
+header.header section a {
+    text-decoration: none;
+    color: black;
+}
