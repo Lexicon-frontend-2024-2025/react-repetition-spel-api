@@ -1,10 +1,10 @@
 import { Game } from "@/interfaces";
 import styles from "./page.module.css";
-import Image from "next/image";
+import GameCard from "@/components/game-card";
 
 export default async function Home() {
   // hämta populära spel från API
-  const res = await fetch(`https://api.rawg.io/api/games?key=bc1c2e51bf4d42acab01e84969eb1429`);
+  const res = await fetch(`https://api.rawg.io/api/games?key=`); //lägg till din api-nyckel
   const data = await res.json();
   console.log(data);
 
@@ -16,16 +16,8 @@ export default async function Home() {
       <h1>Populära spel just nu</h1>
       <section className={styles.popularGames}>
         <ul>
-          {popularGames.map((game) => (
-            <li key={game.id}>
-              {/* <Image
-              src={game.background_image}
-              alt={game.name}
-              width={100}
-              height={100}
-            /> */}
-              <p>{game.name}</p>
-            </li>
+          {popularGames.map((game, i) => (
+            <GameCard key={i} game={game} />
           ))}
         </ul>
       </section>
