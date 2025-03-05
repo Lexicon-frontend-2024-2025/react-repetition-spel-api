@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default async function Home() {
   // hämta populära spel från API
-  const res = await fetch(`https://api.rawg.io/api/games?key=<API-NYCKEL-HÄR>`);
+  const res = await fetch(`https://api.rawg.io/api/games?key=bc1c2e51bf4d42acab01e84969eb1429`);
   const data = await res.json();
   console.log(data);
 
@@ -14,18 +14,20 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <h1>Populära spel just nu</h1>
-      <section>
-        {popularGames.map((game) => (
-          <li key={game.id}>
-            {/* <Image
+      <section className={styles.popularGames}>
+        <ul>
+          {popularGames.map((game) => (
+            <li key={game.id}>
+              {/* <Image
               src={game.background_image}
               alt={game.name}
               width={100}
               height={100}
             /> */}
-            <p>{game.name}</p>
-          </li>
-        ))}
+              <p>{game.name}</p>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );
