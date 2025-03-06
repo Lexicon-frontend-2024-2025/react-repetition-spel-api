@@ -15,7 +15,7 @@ export default function SearchResults({ query }: searchResultsProps) {
         if (!query) return; // om ingen query - lämna funktionen
         const fetchGames = async () => {
             try {
-                const res = await fetch(`https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_RAWG_API_KEY}&search=${query}`);
+                const res = await fetch(`https://api.rawg.io/api/games?key=${process.env.RAWG_API_KEY}&search=${query}`);
                 const data = await res.json();
                 setGames(data.results || []);
             } catch (error) {
