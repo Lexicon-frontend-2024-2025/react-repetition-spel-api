@@ -8,9 +8,12 @@ export default function Header() {
     const [searchQuery, setSearchQuery] = useState<string>('');
     // funktion som trigas när användaren trycker på en tangent
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        console.log(event);
         // kolla om användaren har tryckt enter i input-fältet
-        if (event.key === "Enter") {
+        // TODO: se till så att användaren har minst skrivit in 3 karaktärer innan enter
+        if (event.key === "Enter" && searchQuery.length <= 2) {
+            alert("Sökningen måste vara längra än 2 karaktärer");
+        }
+        if (event.key === "Enter" && searchQuery.length > 2) {
             // trycka in sökningen i vår url
             router.push(`/search?query=${searchQuery}`);
         }

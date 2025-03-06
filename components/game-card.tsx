@@ -8,7 +8,7 @@ interface gameCardProps {
 
 export default function GameCard({ game }: gameCardProps) {
     return (
-        <li key={game.id}>
+        <li>
             <Image
                 src={game.background_image}
                 alt={game.name}
